@@ -22,3 +22,10 @@ This project provides a simple FastAPI application with two endpoints to fetch B
      ```bash
      curl -X GET "http://127.0.0.1:5000/transaction/b6f6991d8acb14b1a2d91458d337d2b8d9c9a01c8bfa1b93c0916b77f4fedb83"
      ```
+
+## Setup and Installation
+
+1. **Clone the repository**:
+2. **Validate ENV**:
+    DB_URI - the DB uri you connecting to, default is -> "mongodb://127.0.0.1:27017"
+    DB_SCHEMA - the DB schema used in your DB server, default is -> "simpliance"
