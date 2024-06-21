@@ -33,7 +33,7 @@ class App:
         config = uvicorn.Config(
             app=self.app,
             host="127.0.0.1",
-            port=5009,
+            port=5000,
             lifespan="off",
             access_log=False
         )
