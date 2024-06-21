@@ -22,11 +22,12 @@ class App:
             allow_methods=["*"],
             allow_headers=["*"],
         )
+        # Add routers
         self.app.include_router(transaction.router)
         self.app.include_router(address.router)
 
+        # init the app with the relevant configurations and settings
         init_application()
-
 
     async def run(self):
         config = uvicorn.Config(

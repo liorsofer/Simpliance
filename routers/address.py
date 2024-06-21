@@ -19,4 +19,4 @@ async def get_balance_and_transaction_count(bitcoin_address: str) -> BitcoinAddr
     except HTTPError as e:
         raise HTTPException(status_code=e.response.status_code, detail=e.response.text)
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=500, detail=f"Internal Server Error, {str(e)}")

@@ -18,6 +18,9 @@ def test_mongodb_connection(client: MongoClient, schema: str):
     except PyMongoError as e:
         logger.error(f"MongoDB error: {e}")
         raise
+    except Exception as e:
+        logger.error(f"Unknown error:: {e}")
+        raise
 
 
 def init_application(app_name: str = "Simpliance"):
@@ -55,7 +58,6 @@ def init_application(app_name: str = "Simpliance"):
     except PyMongoError as e:
         logger.error(f"Failed to connect to MongoDB: {e}")
         raise
-
-
-if __name__ == "__main__":
-    init_application("Hell Kitchen")
+    except Exception as e:
+        logger.error(f"Unknown error:: {e}")
+        raise

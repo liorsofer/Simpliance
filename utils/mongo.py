@@ -3,6 +3,7 @@ from logzero import logger
 from utils.init_app import container
 
 
+# generic function to save data to mongodb
 def save_to_mongo(data, collection_name):
     try:
         # Use the singleton MongoDB client from the container
@@ -13,8 +14,12 @@ def save_to_mongo(data, collection_name):
         logger.info(f"Data saved to MongoDB: {data}")
     except PyMongoError as e:
         logger.error(f"Error saving data to MongoDB: {e}")
+    except Exception as e:
+        logger.error(f"Unknown error:: {e}")
+        raise
 
 
+# generic function to query one record from mongodb
 def get_one_from_mongo(collection_name, query):
     try:
         # Use the singleton MongoDB client from the container
@@ -27,3 +32,6 @@ def get_one_from_mongo(collection_name, query):
     except PyMongoError as e:
         logger.error(f"Error retrieving data from MongoDB: {e}")
         return None
+    except Exception as e:
+        logger.error(f"Unknown error:: {e}")
+        raise
